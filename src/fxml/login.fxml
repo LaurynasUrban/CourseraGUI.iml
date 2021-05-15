@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="446.0" prefWidth="318.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControl.Login">
+   <children>
+      <Button fx:id="logInBtn" layoutX="52.0" layoutY="373.0" mnemonicParsing="false" onAction="#validateAndLogin" text="Log in" />
+      <Button fx:id="signUpBtn" layoutX="185.0" layoutY="373.0" mnemonicParsing="false" onAction="#loadSignUpForm" text="Sign up" />
+      <TextField fx:id="loginField" layoutX="50.0" layoutY="154.0" prefHeight="25.0" prefWidth="164.0" />
+      <PasswordField fx:id="pswField" layoutX="50.0" layoutY="223.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="49.0" layoutY="127.0" prefHeight="17.0" prefWidth="80.0" text="Login" />
+      <Label layoutX="54.0" layoutY="199.0" prefHeight="17.0" prefWidth="92.0" text="Password" />
+      <CheckBox fx:id="empChk" layoutX="52.0" layoutY="297.0" mnemonicParsing="false" text="Employee" />
+      <ComboBox fx:id="coursesBox" layoutX="50.0" layoutY="76.0" prefHeight="25.0" prefWidth="164.0" />
+      <Label layoutX="52.0" layoutY="47.0" text="Learning platform" />
+   </children>
+</AnchorPane>

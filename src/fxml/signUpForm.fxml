@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControl.SignUpForm">
+   <children>
+      <Button layoutX="76.0" layoutY="325.0" mnemonicParsing="false" onAction="#createUser" text="Create user" />
+      <Button layoutX="231.0" layoutY="325.0" mnemonicParsing="false" onAction="#returnToLogin" prefHeight="25.0" prefWidth="68.0" text="Exit" />
+      <PasswordField fx:id="pswField1" layoutX="100.0" layoutY="218.0" />
+      <PasswordField fx:id="pswField2" layoutX="100.0" layoutY="266.0" />
+      <Label layoutX="100.0" layoutY="79.0" text="Login" />
+      <TextField fx:id="loginField" layoutX="100.0" layoutY="96.0" />
+      <TextField fx:id="emailField" layoutX="100.0" layoutY="158.0" />
+      <Label layoutX="100.0" layoutY="141.0" text="Email" />
+      <Label layoutX="100.0" layoutY="200.0" text="Password" />
+      <Text layoutX="102.0" layoutY="262.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm password" />
+      <ComboBox fx:id="courseIsBox" layoutX="100.0" layoutY="35.0" prefWidth="150.0" />
+      <Text layoutX="100.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Learning platform" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fxControl.MainWindow">
+    <children>
+        <TabPane layoutX="7.0" prefHeight="387.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Available courses">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ListView fx:id="allCourses" layoutX="7.0" layoutY="21.0" prefHeight="150.0" prefWidth="176.0" />
+                                <Button layoutX="328.0" layoutY="35.0" mnemonicParsing="false" onAction="#enroll" prefHeight="45.0" prefWidth="160.0" text="Enroll to course" />
+                                <Button layoutX="327.0" layoutY="101.0" mnemonicParsing="false" onAction="#viewCourseInfo1" prefHeight="47.0" prefWidth="162.0" text="View course Info" />
+                        <ListView fx:id="courses" layoutX="7.0" layoutY="202.0" prefHeight="150.0" prefWidth="314.0" />
+                        <Text layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available courses:" />
+                        <Text layoutX="3.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All courses:" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="myCourses" text="My courses">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="studentCourses" layoutX="9.0" layoutY="23.0" prefHeight="327.0" prefWidth="174.0" />
+                        <Button layoutX="207.0" layoutY="14.0" mnemonicParsing="false" onAction="#viewCourseInfo2" prefHeight="38.0" prefWidth="161.0" text="View course info" />
+                        <Button layoutX="207.0" layoutY="62.0" mnemonicParsing="false" onAction="#leaveCourse" prefHeight="39.0" prefWidth="160.0" text="Leave course" />
+                        <ListView fx:id="studentFolders" layoutX="194.0" layoutY="162.0" prefHeight="188.0" prefWidth="186.0" />
+                        <ListView fx:id="studentFiles" layoutX="394.0" layoutY="163.0" prefHeight="187.0" prefWidth="192.0" />
+                        <Button layoutX="207.0" layoutY="109.0" mnemonicParsing="false" onAction="#showStudentFolders" prefHeight="25.0" prefWidth="160.0" text="Show folders" />
+                        <Button layoutX="411.0" layoutY="109.0" mnemonicParsing="false" onAction="#showStudentFiles" prefHeight="25.0" prefWidth="159.0" text="Show Files" />
+                        <Text layoutX="9.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="My courses:" />
+                        <Text layoutX="196.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course folders:" />
+                        <Text layoutX="394.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Folder files:" />
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="myCreatedCourses" text="My created courses">
+                    <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                            <children>
+                                <TextField fx:id="enterName" layoutX="215.0" layoutY="96.0" prefHeight="25.0" prefWidth="90.0" />
+                                <DatePicker fx:id="getStartDate" layoutX="215.0" layoutY="38.0" prefHeight="25.0" prefWidth="137.0" />
+                                <DatePicker fx:id="getEndDate" layoutX="393.0" layoutY="38.0" prefHeight="25.0" prefWidth="135.0" />
+                                <TextField fx:id="enterPrice" layoutX="351.0" layoutY="96.0" prefHeight="25.0" prefWidth="85.0" />
+                                <Button layoutX="474.0" layoutY="95.0" mnemonicParsing="false" onAction="#createCourse" prefHeight="26.0" prefWidth="89.0" text="Create course" />
+                        <ListView fx:id="adminCourses" layoutX="7.0" layoutY="9.0" prefHeight="342.0" prefWidth="175.0" />
+                        <Line endX="418.0" layoutX="184.0" layoutY="169.0" startY="-0.5" />
+                        <Text layoutX="215.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start date" />
+                        <Text layoutX="393.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End date" />
+                        <Text layoutX="215.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course name" />
+                        <Text layoutX="351.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Course price" />
+                        <Button layoutX="303.0" layoutY="232.0" mnemonicParsing="false" onAction="#deleteCourse" prefHeight="54.0" prefWidth="163.0" text="DELETE" />
+                            </children>
+                        </AnchorPane>
+                    </content></Tab>
+            <Tab fx:id="faf" text="Folders and files">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="261.0" layoutY="276.0" mnemonicParsing="false" onAction="#createNewFolder" prefHeight="25.0" prefWidth="148.0" text="Create new folder" />
+                        <ComboBox fx:id="myCoursesBox" layoutX="260.0" layoutY="26.0" onDragEntered="#showFolders" prefWidth="150.0" />
+                        <Button layoutX="434.0" layoutY="276.0" mnemonicParsing="false" onAction="#createNewFile" prefHeight="25.0" prefWidth="152.0" text="Create new file" />
+                        <Button layoutX="433.0" layoutY="72.0" mnemonicParsing="false" onAction="#deleteFolder" prefHeight="25.0" prefWidth="153.0" text="Delete folder" />
+                        <Button layoutX="433.0" layoutY="113.0" mnemonicParsing="false" onAction="#deleteFile" prefHeight="25.0" prefWidth="154.0" text="Delete file" />
+                        <ListView fx:id="folders" layoutX="8.0" layoutY="26.0" prefHeight="141.0" prefWidth="227.0" />
+                        <ListView fx:id="files" layoutX="8.0" layoutY="204.0" prefHeight="144.0" prefWidth="227.0" />
+                        <Text layoutX="12.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Folders" />
+                        <Text layoutX="12.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Files" />
+                        <Button layoutX="260.0" layoutY="72.0" mnemonicParsing="false" onAction="#showFolders" prefHeight="25.0" prefWidth="151.0" text="Show Folders" />
+                        <Button layoutX="258.0" layoutY="113.0" mnemonicParsing="false" onAction="#showFiles" prefHeight="25.0" prefWidth="154.0" text="Show files" />
+                        <TextField fx:id="newFolderName" layoutX="261.0" layoutY="234.0" />
+                        <TextField fx:id="newFileName" layoutX="435.0" layoutY="234.0" />
+                        <Text layoutX="260.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Folder name" />
+                        <Text layoutX="435.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="File name" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Edit profile">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="394.0" prefWidth="600.0">
+                     <children>
+                        <TextField fx:id="eLogin" layoutX="62.0" layoutY="54.0" />
+                        <TextField fx:id="eEmail" layoutX="62.0" layoutY="108.0" />
+                        <TextField fx:id="ePhoneNr" layoutX="62.0" layoutY="166.0" />
+                        <Button layoutX="82.0" layoutY="275.0" mnemonicParsing="false" onAction="#saveInfo" prefHeight="27.0" prefWidth="109.0" text="Save" />
+                        <Text layoutX="61.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
+                        <Text layoutX="62.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                        <Text layoutX="62.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number" />
+                        <Text layoutX="62.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password to confirm:" />
+                        <Line endX="-100.0" endY="182.0" layoutX="400.0" layoutY="148.0" startX="-100.0" startY="-121.0" />
+                        <Text layoutX="364.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New password:" />
+                        <Text layoutX="364.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat new password:" />
+                        <Text layoutX="361.0" layoutY="162.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Old password to confirm:" />
+                        <Button layoutX="381.0" layoutY="213.0" mnemonicParsing="false" onAction="#savePsw" prefHeight="27.0" prefWidth="109.0" text="Save" />
+                        <PasswordField fx:id="eConfirm1" layoutX="62.0" layoutY="228.0" />
+                        <PasswordField fx:id="eConfirm2" layoutX="361.0" layoutY="166.0" />
+                        <PasswordField fx:id="eNewPsw1" layoutX="361.0" layoutY="54.0" />
+                        <PasswordField fx:id="eNewPsw2" layoutX="361.0" layoutY="108.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
