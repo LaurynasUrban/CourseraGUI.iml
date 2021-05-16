@@ -44,10 +44,12 @@ public class Login implements Initializable {
         coursesBox.getItems().addAll(DbOperations.getAllCourseIS());
     }
 
+    //Login button
     public void validateAndLogin(ActionEvent actionEvent) throws IOException, SQLException{
+        // Takes the id of an information system from the combo box
         courseIsId = Integer.parseInt(coursesBox.getValue().toString().split("\\(")[1].replace(")", ""));
 
-        boolean wc = false;
+        // Checks whether to create and Administrator object or Student object based on login fields info
         boolean is_admin = false;
         if(empChk.isSelected() == true && loginField.getText() != null && pswField.getText() != null && courseIsId != 0){
             currentUser = DbOperations.getAdminAcc(loginField.getText(), pswField.getText(), courseIsId);
@@ -55,6 +57,8 @@ public class Login implements Initializable {
         } else if(empChk.isSelected() == false && loginField.getText() != null && pswField.getText() != null && courseIsId != 0){
             currentUser = DbOperations.getStudentAcc(loginField.getText(), pswField.getText(), courseIsId);
         }
+
+        // If the with the input credentials exists, then load the mainWindow form
         if(currentUser != null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/mainWindow.fxml"));
             Parent root = loader.load();
@@ -64,18 +68,11 @@ public class Login implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
         } else{
-            alertMessage("Wrong credentials!");
+            MainWindow.alertMessage("Wrong credentials!");
         }
     }
 
-
-        private void alertMessage (String alertMessage){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information");
-            alert.setContentText(alertMessage);
-            alert.showAndWait();
-        }
-
+        //Signup button, takes the user to signUp form
         public void loadSignUpForm (ActionEvent actionEvent) throws IOException {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/signUpForm.fxml"));
             Parent root = loader.load();

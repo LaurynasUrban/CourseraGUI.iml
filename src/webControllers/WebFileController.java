@@ -15,6 +15,8 @@ import java.util.Properties;
 @RequestMapping(value = "/files")
 public class WebFileController {
 
+    // DbOperations RESTful API for files
+
     @RequestMapping(value = "/getFolderFiles", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody

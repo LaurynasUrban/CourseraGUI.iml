@@ -6,6 +6,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    // Load program
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("fxml/login.fxml"));

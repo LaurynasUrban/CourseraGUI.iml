@@ -66,16 +66,4 @@ public class CourseIS implements Serializable {
     this.version = version;
   }
 
-  @Override
-  public String toString() {
-    return "This is "
-        + name
-        + " course system, currently there are "
-        + allStudents.size()
-        + " students and "
-        + allAdmins.size()
-        + "contributors ("
-        + dateCreated
-        + ")";
-  }
 }

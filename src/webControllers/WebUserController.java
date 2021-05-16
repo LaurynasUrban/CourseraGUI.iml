@@ -18,6 +18,8 @@ import java.util.Properties;
 @RequestMapping(value = "/users")
 public class WebUserController {
 
+    // DbOperations RESTful API for users
+
     @RequestMapping(value = "/getAllAdmins", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody

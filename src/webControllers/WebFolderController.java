@@ -16,6 +16,8 @@ import java.util.Properties;
 @RequestMapping(value = "/folders")
 public class WebFolderController {
 
+    // DbOperations RESTful API for folders
+
     @RequestMapping(value = "/getCourseFolders", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody

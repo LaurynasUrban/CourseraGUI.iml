@@ -125,6 +125,7 @@ public class DbOperations {
         int courseId = getCourseID(name);
         ArrayList<Integer> folders = getAllFoldersIdFromCourse(courseId);
 
+        // Remvove course folders and files from database before deleting the course itself
         for(int i = 0; i < folders.size(); i++){
             deleteFile(folders.get(i));
         }
@@ -311,6 +312,7 @@ public class DbOperations {
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
             int courseID = rs.getInt(1);
+            // Check if student is currently enrolled in this course, if yes - add new object to list
             if(check.contains(courseID))
                 courses.add(new Course(rs.getInt(1), rs.getString(2), LocalDate.parse(rs.getString(3)), LocalDate.parse(rs.getString(4)), rs.getInt(5), rs.getDouble(6), rs.getInt(7)));
         }
@@ -328,6 +330,7 @@ public class DbOperations {
         ResultSet rs = statement.executeQuery(sql);
         while (rs.next()) {
             int courseID = rs.getInt(1);
+            // Check if student is currently enrolled in this course, if no - add new object to list
             if(!(check.contains(courseID)))
                 courses.add(new Course(rs.getInt(1), rs.getString(2), LocalDate.parse(rs.getString(3)), LocalDate.parse(rs.getString(4)), rs.getInt(5), rs.getDouble(6), rs.getInt(7)));
         }
@@ -594,6 +597,7 @@ public class DbOperations {
         statement.execute();
         disconnectFromDb(connection, statement);
 
+        // Remove files from database of the deleted folder
         deleteFile(getFolderId(folderName));
     }
 

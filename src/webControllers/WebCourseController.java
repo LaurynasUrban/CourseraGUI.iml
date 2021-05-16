@@ -17,10 +17,8 @@ import java.util.Properties;
 @RequestMapping(value = "courses")
 public class WebCourseController {
 
-    //read
-    //create
-    //update
-    //delete
+    // DbOperations RESTful API for courses
+
     @RequestMapping(value = "/getAllCourses", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody

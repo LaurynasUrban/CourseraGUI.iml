@@ -32,6 +32,7 @@ public class SignUpForm implements Initializable {
         courseIsBox.getItems().addAll(DbOperations.getAllCourseIS());
     }
 
+    // Exit button, returns to login form
     public void returnToLogin(ActionEvent actionEvent) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../fxml/login.fxml"));
         Parent root = loader.load();
@@ -41,14 +42,18 @@ public class SignUpForm implements Initializable {
         stage.show();
     }
 
+    // create user button
     public void createUser(ActionEvent actionEvent) throws SQLException, IOException {
+        // Collect field info
         String name = loginField.getText();
         String email = emailField.getText();
         String psw1 = pswField1.getText();
         String psw2 = pswField2.getText();
         courseIsId = Integer.parseInt(courseIsBox.getValue().toString().split("\\(")[1].replace(")", ""));
 
-        if(psw1.equals(psw2) && name != null && email != null) {
+        // If passwords match, and fields are not empty - create a Student user with name, password, email and courseIsId information
+        // Database checks for duplicate entries as login is a unique field
+        if(psw1.equals(psw2) && !name.equals("") && !email.equals("")) {
             DbOperations.insertStudent(name, psw1, email, courseIsId);
             MainWindow.alertMessage("Account created!");
             returnToLogin(actionEvent);
